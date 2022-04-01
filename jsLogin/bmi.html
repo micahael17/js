@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1" align="center" cellspacing="0" id="BmiCounter">
+        <tr>
+            <td>身高(cm)</td>
+            <td><input type="text" id="height"></td>
+            <td><input type="button" id="start" value="開始計算"></td>
+        </tr>
+        <tr>
+            <td>體重(kg)</td>
+            <td><input type="text" id="weight"></td>
+            <td><input type="button" id="reset" value="清除重算"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                你的Bmi
+            </td>
+            <td><input type="text" id="Bmi"></td>
+        </tr>
+    </table>
+    <script>
+        function countBmi() {
+            var height = document.getElementById("height");
+            var weight = document.getElementById("weight");
+            mheight = Number(height) / 100;
+            var bmi = Number(weight) / (mheight * mheight);
+            var result = document.getElementById("Bmi");
+            result.value = bmi;
+        }
+
+        function resetForm() {
+            var height = document.getElementById("height");
+            var weight = document.getElementById("weight");
+            var result = document.getElementById("Bmi");
+            height.value = "";
+            weight.value = "";
+            result.value = "";
+        }
+
+        function init() {
+
+            start.addEventListener("click", countBmi, false);
+            reset.addEventListener("click", resetForm, false);
+
+        }
+        window.addEventListener("load", init, false);
+    </script>
+
+</body>
+
+</html>
