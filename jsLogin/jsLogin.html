@@ -64,7 +64,7 @@
         function checkLoginData() {
             document.getElementById("memId");
             document.getElementById("memPsw");
-            if (memId.innerText == "Sara" && memPsw.innerText === "111") {
+            if (memId.innerText == "Sara" && memPsw.innerText == "111") {
                 window.alert("登入成功");
             } else {
                 window.alert("帳密錯誤");
@@ -77,10 +77,10 @@
         }
 
         function init() {
-            document.getElementById("spanLogin").onclick = showLightBox;
+            spanLogin.addEventListener("click", showLightBox, false);
 
 
-            document.getElementById("btnLogin").onclick = checkLoginData;
+            btnLogin.addEventListener("click", checkLoginData, false);
 
 
             document.getElementById("btnCancel").onclick = cancelLogin;
