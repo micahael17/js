@@ -13,11 +13,11 @@
         <table border="1" align="center" cellspacing="0" id="tableLogin">
             <tr>
                 <td>帳號</td>
-                <td><input type="text" name="memId" id="memId" value="Sara"></td>
+                <td><input type="text" name="memId" id="memId"></td>
             </tr>
             <tr>
                 <td>密碼</td>
-                <td><input type="password" name="memPsw" id="memPsw" value="111"></td>
+                <td><input type="password" name="memPsw" id="memPsw"></td>
             </tr>
             <tr>
                 <td colspan="2" align="center">
@@ -55,25 +55,35 @@
                 document.getElementById("lightBox").style.display = "block";
             } else {
                 document.getElementById("memName").style.display = "none";
-                spanLogin = "登入";
-            }
 
+            }
+            spanLogin.innerHTML = "登入";
 
         } //showLoginForm
 
         function checkLoginData() {
             var memId = document.getElementById("memId");
             var memPsw = document.getElementById("memPsw");
-
-            if (memId.innerText == "Sara" && memPsw.innerText == "111") {
+            console.log(memId.value);
+            console.log(memPsw.value);
+            if (memId.value == "Sara" && memPsw.value == "111") {
                 window.alert("登入成功");
+                var spanLogin = document.getElementById("spanLogin");
+                spanLogin.innerHTML = "登出";
+                var memName = document.getElementById("memName");
+                memName.innerHTML = "董董"
+                memId.value = "";
+                memPsw.value = "";
+
+
+
             } else {
                 window.alert("帳密錯誤");
             }
         }
 
         function cancelLogin() {
-            //將登入表單上的資料清空，並將燈箱隱藏起來
+            document.getElementById("lightBox").style.display = "none";
 
         }
 
