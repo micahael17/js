@@ -13,11 +13,11 @@
         <table border="1" align="center" cellspacing="0" id="tableLogin">
             <tr>
                 <td>帳號</td>
-                <td><input type="text" name="memId" id="memId"></td>
+                <td><input type="text" name="memId" id="memId" value="Sara"></td>
             </tr>
             <tr>
                 <td>密碼</td>
-                <td><input type="password" name="memPsw" id="memPsw"></td>
+                <td><input type="password" name="memPsw" id="memPsw" value="111"></td>
             </tr>
             <tr>
                 <td colspan="2" align="center">
@@ -62,8 +62,9 @@
         } //showLoginForm
 
         function checkLoginData() {
-            document.getElementById("memId");
-            document.getElementById("memPsw");
+            var memId = document.getElementById("memId");
+            var memPsw = document.getElementById("memPsw");
+
             if (memId.innerText == "Sara" && memPsw.innerText == "111") {
                 window.alert("登入成功");
             } else {
@@ -83,7 +84,7 @@
             btnLogin.addEventListener("click", checkLoginData, false);
 
 
-            document.getElementById("btnCancel").onclick = cancelLogin;
+            btnCancel.addEventListener("click", cancelLogin, false);
 
         }; //window.onload
 
